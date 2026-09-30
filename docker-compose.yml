@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: poc_ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+  app:
+    build: .
+    container_name: poc_app
+    depends_on:
+      - ollama
+    volumes:
+      - ./documentos:/app/documentos
+      - ./chroma_db:/app/chroma_db
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+
+volumes:
+  ollama_data:

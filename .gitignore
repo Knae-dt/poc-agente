@@ -1,0 +1,12 @@
+# Base de datos vectorial (se genera automaticamente)
+chroma_db/
+
+# Entornos virtuales de Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
